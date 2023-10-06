@@ -1,0 +1,64 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+
+    <mat-grid-list cols="2" rowHeight="100px">
+
+    <mat-grid-tile >
+      <mat-form-field>
+        <mat-label>Product Code</mat-label>
+        <input matInput placeholder="Product Code" name="productCode" [(ngModel)]="product.productCode" required>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile >
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Title" name="title" [(ngModel)]="product.title" required>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile >
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input matInput type="number" placeholder="Price" name="price" [(ngModel)]="product.price" required>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-form-field class="form-field">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matIconSuffix [(ngModel)]="product.created" [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-form-field>
+      <mat-label>Tags</mat-label>
+      <input matInput placeholder="Tags" name="tags" [(ngModel)]="product.tags">
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-form-field>
+      <mat-label>Vendor</mat-label>
+      <input matInput placeholder="Vendor" name="vendor" [(ngModel)]="product.vendor" required>
+    </mat-form-field>
+  </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <input matInput placeholder="Category" name="category" [(ngModel)]="product.category" required>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <button mat-button color="primary" mat-raised-button type="submit">Submit</button>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+  </form>
+
+</div>

@@ -1,0 +1,46 @@
+<ng-container>
+
+  <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let product">{{ product.id }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="productCode">
+      <mat-header-cell *matHeaderCellDef>Product Code</mat-header-cell>
+      <mat-cell *matCellDef="let product">{{ product.productCode }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+      <mat-cell *matCellDef="let product">{{ product.title }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
+      <mat-cell *matCellDef="let product">{{ product.price | currency }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="created">
+      <mat-header-cell *matHeaderCellDef>Created</mat-header-cell>
+      <mat-cell *matCellDef="let product">{{ product.created | date : 'dd.MM.yyyy HH:mm'}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="vendor">
+      <mat-header-cell *matHeaderCellDef>Vendor</mat-header-cell>
+      <mat-cell *matCellDef="let product">{{ product.vendor }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <mat-header-cell *matHeaderCellDef>Category</mat-header-cell>
+      <mat-cell *matCellDef="let product">{{ product.category }}</mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+  </mat-table>
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+
+</ng-container>
